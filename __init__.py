@@ -76,6 +76,16 @@ def enregistrer_client():
     conn.commit()
     conn.close()
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
+
+@app.route('/fiche_nom/', methods=['GET', 'POST'])
+def search_by_name():
+    if request.method == 'GET':
+        return render_template('search_by_name.html')
+
+    if request.method == 'POST':
+        search_name = request.form['search_name']
+        customers = Customer.query.filter_by(name=search_name).all()
+        return render_template('search_results.html', customers=customers)
                                                                                                                                        
 if __name__ == "__main__":
   app.run(debug=True)
