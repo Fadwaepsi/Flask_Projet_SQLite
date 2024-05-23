@@ -77,6 +77,8 @@ def enregistrer_client():
     conn.close()
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
+def rechercher_client_par_nom(nom):
+    pass
 @app.route('/fiche_nom/', methods=['GET'])
 def fiche_nom():
     nom_client = request.args.get('nom')
