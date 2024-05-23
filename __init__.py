@@ -79,6 +79,7 @@ def enregistrer_client():
 
 def rechercher_client_par_nom(nom):
     pass
+
 @app.route('/fiche_nom/', methods=['GET'])
 def fiche_nom():
     nom_client = request.args.get('nom')
